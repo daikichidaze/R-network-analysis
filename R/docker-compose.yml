@@ -1,0 +1,25 @@
+version: '3'
+services:
+  rstudio:
+    image: rocker/rstudio
+    ports:
+      - "8787:8787"
+    volumes:
+      - type: volume
+        source: rstudio
+        target: /home/rstudio
+      - type: bind
+        source: ./workdir
+        target: /home/rstudio/workdir
+      - type: volume
+        source: r_libs
+        target: /usr/local/lib/R
+    environment:
+      - PASSWORD=rstudio
+    expose:
+      - 8787
+
+
+volumes:
+  r_libs:
+  rstudio:
