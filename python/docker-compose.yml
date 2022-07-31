@@ -1,0 +1,9 @@
+version: '3'
+services:
+  network-analysis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+     - .:/workdir
+    tty: true
